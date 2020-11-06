@@ -1,1 +1,28 @@
-<app-repo-form></app-repo-form>
+<ng-progress></ng-progress>
+<app-repo-form (getName)='searchRepos($event)'></app-repo-form>
+<div class="row">
+    <div class="col-md-11">
+      <div >
+        <div class="table">
+          <table class="table">
+            <tbody>
+             <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
+              <td>
+                <h4>
+                  <a style="text-align: center" href="{{repository.html_url}} " >{{repository.name}}</a>
+                </h4>
+                <p > Repository Owner:
+                  <a href="{{repository.owner.html_url}}">{{repository.owner.login}}</a>
+                </p>
+                <p>Date Created : {{repository.created_at|date}}</p>
+                <p>Description : {{repository.description}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </div>
+
+  </div>

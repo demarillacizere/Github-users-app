@@ -1,1 +1,32 @@
+<ng-progress></ng-progress>
 <app-user-form (getName)='findUser($event)'></app-user-form>
+<div class="container">
+        <h3> {{users.name}}</h3>
+            <p>Github Username:<p>
+            <a href="{{users.html_url}}" target="_blank">{{users.login}}</a>
+
+            <span>Repositories:</span>
+            <span>{{users.public_repos }}</span>
+            <span>Date created:</span>
+            <span>{{users.created_at | date}}</span>
+            <span>Followers:</span>
+            <span>{{users.followers}}</span>
+            <span>Following</span>
+            <span>{{users.following}}</span>
+</div>
+<div class="col-md-5 image-end">
+   <img src="{{users.avatar_url}}">
+</div>
+<div class="container">
+  <div class="row">
+    <div  class="col-md-12">
+      <h2 style="color: #056b5b" > User Repositories</h2>
+          <p *ngFor='let repository of userRepos.newRepository'>
+            <a href="{{repository.html_url}}" target="_blank" >{{repository.name}}</a>
+                <br>
+            <p class="desc">Description: {{repository.description}}</p>
+              <br>
+              <p>Date Created: {{repository.created_at | date}}</p>
+    </div>
+</div>  
+</div> 

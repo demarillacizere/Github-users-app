@@ -1,9 +1,9 @@
 <form (ngSubmit)="searchFor(searchForm)" #searchForm="ngForm">
     <div class="form-group">
-        <input type="text" class="form-control" id="reponame" placeholder="Enter repository name"name="reponame" [(ngModel)]= "searchInfo.find"  #find='ngModel'required>
-        <div [hidden]="reponame.valid || reponame.pristine" class="alert alert-danger">
+        <input type="text" class="form-control" id="name" placeholder="Enter repository name"name="name" [(ngModel)]= "searchInfo.find"  #find='ngModel'required>
+        <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
           <p>Repository name is required</p>
-        </div>
+        </div> -->
     </div>
     <button type='submit' class='btn btn-primary'>Submit</button>
 </form>
