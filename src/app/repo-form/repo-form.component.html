@@ -1,1 +1,9 @@
-<p>repo-form works!</p>
+<form (ngSubmit)='submitUser()' #userForm='ngForm'>
+    <div class="form-group">
+        <input type="text" class="form-control" id="username" placeholder="Enter username" [(ngModel)]="newUser.username" username="name" #username='ngModel' required>
+        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+          <p>Name is required</p>
+        </div>
+    </div>
+    <button type='submit' class='btn btn-primary'>Submit</button>
+</form>
