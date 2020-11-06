@@ -10,6 +10,7 @@ import { RepoFormComponent } from './repo-form/repo-form.component';
 import { UserComponent } from './user/user.component';
 import { RepoComponent } from './repo/repo.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     RepoFormComponent,
     UserComponent,
     RepoComponent,
-    NavbarComponent
+    NavbarComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

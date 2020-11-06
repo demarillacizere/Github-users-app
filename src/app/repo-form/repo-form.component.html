@@ -1,7 +1,7 @@
 <form (ngSubmit)='submitRepo()' #repoForm='ngForm'>
     <div class="form-group">
-        <input type="text" class="form-control" id="repo-name" placeholder="Enter repository name" [(ngModel)]="newrepo.repo-name" name="repo-name" #repo-name='ngModel' required>
-        <div [hidden]="repo-name.valid || repo-name.pristine" class="alert alert-danger">
+        <input type="text" class="form-control" id="reponame" placeholder="Enter repository name" [(ngModel)]="newrepo.reponame" name="reponame" #reponame='ngModel' required>
+        <div [hidden]="reponame.valid || reponame.pristine" class="alert alert-danger">
           <p>Repository name is required</p>
         </div>
     </div>
