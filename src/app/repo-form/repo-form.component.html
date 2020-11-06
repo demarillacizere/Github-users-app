@@ -1,6 +1,6 @@
-<form (ngSubmit)='submitRepo()' #repoForm='ngForm'>
+<form (ngSubmit)="searchFor(searchForm)" #searchForm="ngForm">
     <div class="form-group">
-        <input type="text" class="form-control" id="reponame" placeholder="Enter repository name" [(ngModel)]="newrepo.reponame" name="reponame" #reponame='ngModel' required>
+        <input type="text" class="form-control" id="reponame" placeholder="Enter repository name"name="reponame" [(ngModel)]= "searchInfo.find"  #find='ngModel'required>
         <div [hidden]="reponame.valid || reponame.pristine" class="alert alert-danger">
           <p>Repository name is required</p>
         </div>

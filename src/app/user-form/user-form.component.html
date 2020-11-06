@@ -1,6 +1,6 @@
 <form (ngSubmit)='submitUser()' #userForm='ngForm'>
     <div class="form-group">
-        <input type="text" class="form-control" id="username" placeholder="Enter username" [(ngModel)]="newUser.username" name="username" #username='ngModel' required>
+        <input type="text" class="form-control" id="username" placeholder="Enter username" (ngSubmit)="searchFor(searchForm)" #searchForm="ngForm" name="username" [(ngModel)]= "searchInfo.find"  #find='ngModel' required>
         <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
           <p>Name is required</p>
         </div>
