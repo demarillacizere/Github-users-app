@@ -9,6 +9,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { RepoFormComponent } from './repo-form/repo-form.component';
 import { UserComponent } from './user/user.component';
 import { RepoComponent } from './repo/repo.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RepoComponent } from './repo/repo.component';
     UserFormComponent,
     RepoFormComponent,
     UserComponent,
-    RepoComponent
+    RepoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
