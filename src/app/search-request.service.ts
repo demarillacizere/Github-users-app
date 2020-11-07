@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {environment} from '../environments/environment';
 import {Repository} from './repository';
 import {User} from './user';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class SearchRequestService {
     users: User;
     newRepository: any;
     searchRepo: any;
-
+    repoName: string;
     constructor(private http: HttpClient) {
         this.repository = new Repository('', '', '', new Date());
         this.users = new User('', '', '', 0, '', new Date(), 0, 0);}
@@ -58,6 +58,7 @@ export class SearchRequestService {
               this.newRepository = getRepoResponse;
               resolve();
           }, error => {
+              this.newRepository = 'Error-unable to get Repository';
               reject(error);
           });
       });
@@ -76,10 +77,18 @@ export class SearchRequestService {
 
               resolve();
             }, error => {
-                this.searchRepo = 'error';
+                this.searchRepo = 'Error-unable to get Repository';
                 reject(error);
             });
         });
         return promise;
     }
+    searchrepos() {
+        return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
+          headers: new HttpHeaders({Authorization: `token ${environment.apiKey}`})
+        }))
+      }
+      UpdateRepo(repo:string) {
+        this.repoName = repo;
+      }
 }

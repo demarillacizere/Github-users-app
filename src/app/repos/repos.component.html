@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <ng-progress></ng-progress>
+    <div class="container">
+        <form >
+            <div class="form-group form-inline" (ngSubmit)="findRepo()">
+                <input class='form-control' type="text" name="search" [(ngModel)]='repoName' (keyup)="findRepo()">&nbsp;&nbsp;
+                <button type='submit' class='btn btn-secondary'><i class="fas fa-search"></i> Search</button>
+            </div>
+        </form>
+
+        <div *ngIf="repoitems" >
+            <div class="card" *ngFor='let item of repoitems'>
+                <div class="card-body" appHighlight>
+                    <h3><a href="{{item.html_url}}" target="_blank"><strong>{{item.name}}</strong></a></h3><br>
+                    <p><strong>Created:</strong> {{item.created_at|dayCount}}</p>
+                    <p><strong>Created by:</strong> {{item.owner.login}}</p>
+                    <p><strong>Language used:</strong> {{item.language}}</p>
+                    <p>{{item.description}}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

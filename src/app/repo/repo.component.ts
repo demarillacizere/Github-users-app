@@ -9,26 +9,27 @@ import {Repository} from '../repository';
 export class RepoComponent implements OnInit {
 
   repository: Repository;
-    public searchRepo: string;
-    public resultCount = 12;
-
-    searchRepos(repository) {
-        this.searchRepo = '';
-        this.resultCount = 10;
-        this.getDataFunction();
-
+    public searchName='pizza';
+    public gitRepo:string;
+    public resultCount =10;
+    
+    searchRepos(name) {
+        this.gitRepo=''
+        this.searchName = name;
+        this.ngOnInit();
     }
 
     constructor(public gitRepoRequest: SearchRequestService ) { }
 
   ngOnInit() {
-        this.resultCount = 5;
-      this.gitRepoRequest.gitRepos(this.searchRepo);
+      this.gitRepoRequest.gitRepos(this.searchName);
+      this.repository = this.gitRepoRequest.repository;
+      console.log(this.repository);
   }
 
 
       getDataFunction() {
-          this.gitRepoRequest.gitRepos(this.searchRepo);
+          this.gitRepoRequest.gitRepos(this.searchName);
 
       }
 

@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { RepoComponent } from './repo/repo.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReposComponent } from './repos/repos.component';
+
 const routes: Routes = [
   { path: 'user', component: UserComponent},
-  { path: 'repository', component: RepoComponent},
+  { path: 'repository', component: ReposComponent},
   { path: '', redirectTo:"/user", pathMatch:"full"},
   { path:'**', component:NotFoundComponent},
 ];

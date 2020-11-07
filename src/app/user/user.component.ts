@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SearchRequestService} from '../search-request.service';
 import {User} from '../user';
 import {Repository} from '../repository';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -23,7 +24,6 @@ export class UserComponent implements OnInit {
         this.searchMe  = username;
         this.ngOnInit();
     }
-
 
   constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService) { }
 

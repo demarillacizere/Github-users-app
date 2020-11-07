@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+import { DayCountPipe } from './day-count.pipe';
+import { ReposComponent } from './repos/repos.component';
+import { HighlightDirective } from './highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,10 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
     UserComponent,
     RepoComponent,
     NavbarComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    DayCountPipe,
+    ReposComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

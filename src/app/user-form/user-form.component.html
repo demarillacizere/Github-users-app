@@ -1,10 +1,11 @@
-<form (ngSubmit)="searchFor(searchForm)" #searchForm="ngForm">
+<form (ngSubmit)="searchFor(searchForm)" #searchForm="ngForm" class="form-inline">
     <div class="form-group">
         <input type="text" class="form-control" id="username" placeholder="Enter username" name="find" [(ngModel)]= "searchInfo.find"  #find='ngModel' required>
         <!-- <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
           <p>Name is required</p>
         </div> -->
-    </div>
-    <button type='submit' class='btn btn-primary'>Submit</button>
-</form>
+    </div>&nbsp;&nbsp;
+    <button type='submit' class='btn btn-secondary'><i class="fas fa-search"></i> Search</button>
+</form><br><br>
+
 

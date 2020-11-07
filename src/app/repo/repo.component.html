@@ -19,7 +19,7 @@
               <p > Repository Owner:
                 <a href="{{repository.owner.html_url}}">{{repository.owner.login}}</a>
               </p>
-              <p>Date Created : {{repository.created_at|date}}</p>
+              <p>Date Created : {{repository.created_at|date | dayCount}}</p>
               <p>Description : {{repository.description}}</p>
             </td>
           </tr>
