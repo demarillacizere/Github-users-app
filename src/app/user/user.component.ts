@@ -9,7 +9,7 @@ import {Repository} from '../repository';
 })
 export class UserComponent implements OnInit {
 
-  public searchMe = 'wanjiiru';
+  public searchMe = 'demarillacizere';
     public githubUser: string;
 
     users: User ;
