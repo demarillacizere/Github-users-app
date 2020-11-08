@@ -3,6 +3,7 @@ import {environment} from '../environments/environment';
 import {Repository} from './repository';
 import {User} from './user';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { repoitems } from './repoitems';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,10 @@ export class SearchRequestService {
     newRepository: any;
     searchRepo: any;
     repoName: string;
+ 
     constructor(private http: HttpClient) {
         this.repository = new Repository('', '', '', new Date());
-        this.users = new User('', '', '', 0, '', new Date(), 0, 0);}
+        this.users = new User('', '','', '', 0, '', new Date(), 0, 0);}
         githubUser(searchName) {
           interface ApiResponse {
               name: string;
@@ -28,9 +30,10 @@ export class SearchRequestService {
               followers: number;
               following: number;
               avatar_url: string;
+              bio: string;
           }
   
-          const promise = new Promise((resolve) => {
+          const promise = new Promise((resolve, reject) => {
               this.http.get<ApiResponse>('https://api.github.com/users/' + searchName + '?access_token=' + environment.apiKey).toPromise().then(getResponse => {
                   this.users.name = getResponse.name;
                   this.users.html_url = getResponse.html_url;
@@ -40,8 +43,12 @@ export class SearchRequestService {
                   this.users.created_at = getResponse.created_at;
                   this.users.followers = getResponse.followers;
                   this.users.following = getResponse.following;
+                  this.users.bio = getResponse.bio;
                   resolve();
-              },);
+              },error => {
+                console.log("Error-unable to get Repository")
+                reject(error);
+              });
           });
           return promise;
 
@@ -58,7 +65,8 @@ export class SearchRequestService {
               this.newRepository = getRepoResponse;
               resolve();
           }, error => {
-              this.newRepository = 'Error-unable to get Repository';
+              this.newRepository = '';
+              console.log("Error-unable to get Repository")
               reject(error);
           });
       });
@@ -90,5 +98,6 @@ export class SearchRequestService {
       }
       UpdateRepo(repo:string) {
         this.repoName = repo;
+        return repoitems;
       }
 }

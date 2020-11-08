@@ -1,0 +1,7 @@
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.row{
+    grid-row-gap:10px;
+}

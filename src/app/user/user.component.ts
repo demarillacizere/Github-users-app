@@ -24,8 +24,10 @@ export class UserComponent implements OnInit {
         this.searchMe  = username;
         this.ngOnInit();
     }
-
-  constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService) { }
+    goToUrl(users){
+      this.router.navigate(['/user',users])
+    }
+  constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService, private router:Router) { }
 
   ngOnInit() {
       this.githubUserRequest.githubUser(this.searchMe);

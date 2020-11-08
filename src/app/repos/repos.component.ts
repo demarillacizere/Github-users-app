@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchRequestService} from '../search-request.service';
+import {Repository} from '../repository';
 @Component({
   selector: 'app-repos',
   templateUrl: './repos.component.html',
@@ -7,11 +8,15 @@ import {SearchRequestService} from '../search-request.service';
 })
 export class ReposComponent implements OnInit {
 
-  repoitems: any[];
-  repoName:string= "pizza";
+  repoitems: Repository;
+  repoName:string= "Moringa";
 
   constructor(public SearchRequestService: SearchRequestService) { 
-    
+    this.repoitems = new Repository ("","","",new Date());
+    this.SearchRequestService.searchrepos().subscribe(repoitems => {
+      console.log(repoitems);
+      
+    });
   }
 
   findRepo () {

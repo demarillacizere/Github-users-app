@@ -1,1 +1,15 @@
-<p>user-details works!</p>
+<div class="container">
+    <div class="row">
+      <div  class="col-md-12">
+        <h2 style="color: #056b5b"> User Repositories</h2><br>
+            <div class='row'>
+            <div *ngFor='let repository of userRepos.newRepository' class='card col-md-6'>
+              <div class='card-body'>
+                <h3>{{repository.name}}</h3><br>
+                <p class="desc"><strong>Description: </strong>{{repository.description}}</p>
+                <p><strong>Created: </strong> {{repository.created_at | date | dayCount}}</p>
+                <button class='btn btn-success'><a href="{{repository.html_url}}" target="_blank">View the project</a></button>
+              </div>
+         </div>
+      </div>
+    </div>
