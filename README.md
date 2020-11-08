@@ -22,7 +22,7 @@ The applications allows users to do the following:
 + '''Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.'''
 
 ## Live Demo
-To view the page click here: [QuotesApp](https://demarillacizere.github.io/Github-users-app/)
+To view the page click here: [Github Search](https://demarillacizere.github.io/Github-users-app/)
 
 ## Technology Used
 + Angular JS
